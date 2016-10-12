@@ -25,9 +25,15 @@ Set-Value Attributes
     - attribute value can be a set: (1111, John, (stamps, coins))
 
 Weak Entities
-  - fully bold
-  - cannot exist without main entity
-  - requires key of main entity
+  - identified uniquely only by considering **primary key** of another (owner) entity
+    - owner entity and weak identity must participate in a 1-1 relationship
+    - weak entity must have total participation in identifying relationship
+    - weak entities have a **weak key**
+
+ISA Hierarchies
+  - forms a new entity set as a union of two or more entity sets, or
+  - forms a derived entity set by taking a subset of a given entity set
+    - attributes common to all lower-level entities are represented a the higher-level entity
 
 ## Mapping ER Diagrams to Tables
 Relationship Sets to Tables
