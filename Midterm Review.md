@@ -7,8 +7,7 @@
   - Role: the function of an entity set in a relationship set
     - *role labels* are needed whenever an entity set has multiple functions in a relationship set
 
-Many-to-Many relationships
-![alt text](https://github.com/sdlarsen1/CMPUT291/blob/master/images/many-to-many.png)
+[Many-to-Many Relationships](https://github.com/sdlarsen1/CMPUT291/blob/master/images/many-to-many.png)
   - no constraints
     - eg. many employees can be in relationships with many projects and vice versa
 
