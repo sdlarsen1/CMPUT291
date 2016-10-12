@@ -11,26 +11,26 @@
   - no constraints
     - eg. many employees can be in relationships with many projects and vice versa
 
-Many-to-One
+[Many-to-One](https://github.com/sdlarsen1/CMPUT291/blob/master/images/many-to-one.png)
   - constraint: each employee works in at most one department
     - given an employee, we can uniquely identify the department they work in
 
-Participation Constraints
+[Participation Constraints](https://github.com/sdlarsen1/CMPUT291/blob/master/images/participation.png)
   - represented by a **bold** line
   - eg. every project *must* have a supervisor
     - every pid value in projects must appear in an element of the supervises relationship
 
-Set-Value Attributes
+[Set-Value Attributes](https://github.com/sdlarsen1/CMPUT291/blob/master/images/set-value.png)
   -  eg. each employee can have more than 1 hobby
     - attribute value can be a set: (1111, John, (stamps, coins))
 
-Weak Entities
+[Weak Entities](https://github.com/sdlarsen1/CMPUT291/blob/master/images/weakentity.png)
   - identified uniquely only by considering **primary key** of another (owner) entity
     - owner entity and weak identity must participate in a 1-1 relationship
     - weak entity must have total participation in identifying relationship
     - weak entities have a **weak key**
 
-ISA Hierarchies
+[ISA Hierarchies](https://github.com/sdlarsen1/CMPUT291/blob/master/images/isa.png)
   - forms a new entity set as a union of two or more entity sets, or
   - forms a derived entity set by taking a subset of a given entity set
     - attributes common to all lower-level entities are represented a the higher-level entity
