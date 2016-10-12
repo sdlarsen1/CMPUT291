@@ -1,0 +1,38 @@
+Script started on Fri Oct  7 13:58:20 2016
+[?1034hbash-3.2$ sqlite3
+-- Loading resources from /Users/stephen/.sqliterc
+
+SQLite version 3.14.0 2016-07-26 15:17:14
+Enter ".help" for usage hints.
+Connected to a [1mtransient in-memory database[0m.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> .read tab[K[K[Ka2-tables.sql 
+
+sqlite> .read a2-data.sql 
+
+sqlite> .read a2-queries.sql 
+Question 1 - sdlarsen
+ABC
+DEF
+XXX
+niacin
+Question 2 - sdlarsen
+The Abyss
+t-Virus
+Question 3 - sdlarsen
+Ebola
+Question 4 - sdlarsen
+John Doe 2:123-456-789
+Question 5- sdlarsen
+Question 6 - sdlarsen
+Error: near line 77: near ".": syntax error
+Question 9 - sdlarsen
+Question 10 - sdlarsen
+lalala
+niacin
+
+sqlite> .exit
+bash-3.2$ exit
+exit
+
+Script done on Fri Oct  7 13:58:55 2016
