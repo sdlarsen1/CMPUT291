@@ -75,9 +75,6 @@ Relationships with Key Constraints
   )
   ```
 
-Participation Constraints
-  - similar to _Key Constraints_, except relationship attributes must have __NOT NULL__
-
 Set-Value Attributes
   - cannot store more than one value in a field
   - same problem arises when mapping a relationship with a set-value attribute
@@ -121,18 +118,47 @@ Basic queries
   ```sql
   SELECT <columns>
   FROM R1 r1, R2 r2,... -- implicit join
-  WHERE condition;
+  WHERE C;
   ```
+  - _tuple_ variables r1, r2,..., rn range over rows of R1, R2,..., Rn, respectively
   - is conceptually equivalent to
       πTargetList(σCondition(R1xR2x...xRn))
+  - conceptual evaluation strategy
+    - __FROM__ produces a Cartesian product of listed tables
+    - __WHERE__ selects only those (combined) rows from the Cartesian product that satisfy condition C
+    - __SELECT__ retains the desired columns
 
 Duplicates
-  - use **SELECT DISTINCT**
+  - duplicate rows not allowed in a relation
+  - duplicate elimination from a query is expensive and not automatically done:
+    - use **SELECT DISTINCT**
 
-Expressions using strings
+Operations Over Strings
+  - equality and comparison operators apply to strings (based on lexical ordering)
+  ```sql
+    WHERE cname < 'P'
+  ```
+  - concatenate operator applies to strings
+  ```sql
+    WHERE bname ||'--'|| address = ...
+  ```
+  - expressions can also be used in __SELECT__ clause
+  ```sql
+  SELECT bname ||'--'|| address AS NameAdd
+  FROM branch
+  ```
+
+Expressions Using Strings
+  - expression for string matching
+    - col-name [__NOT__] __LIKE__ pattern
   - pattern may include wildcard characters
     - % matching any string
-    - _ matches
+    - _ matches any single character
+    ```sql
+    SELECT *
+    FROM customer
+    WHERE name LIKE '%John%'
+    ```
 
 Queries over multiple relations
   - join conditions
@@ -146,9 +172,9 @@ Group By
   - creates single output line that repeats the attributes given by **GROUP BY** condition
     - plus whatever you want to do now for the whole group
   ```sql
-  select b.city, count(b.name), avg(b.assets)
-  from branch b
-  group by b.city;
+  SELECT b.city, COUNT(b.name), AVG(b.assets)
+  FROM branch b
+  GROUP BY b.city;
   ```
   - **HAVING** clause
     - group condition, excludes certain groups
