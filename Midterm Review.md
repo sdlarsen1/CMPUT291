@@ -36,46 +36,91 @@
     - attributes common to all lower-level entities are represented a the higher-level entity
 
 ## Mapping ER Diagrams to Tables
+Entity Sets to Tables
+  ```sql
+  CREATE TABLE employees (
+    sin CHAR,
+    name CHAR,
+    PRIMARY KEY (sin)
+  )
+  ```
+
 Relationship Sets to Tables
   - attributes of relationship with no constraints
     - key of every participating entity set
     - all descriptive attributes
-  ```sql
-  CREATE TABLE Works_on (
-    sin char(11),
-    pid integer,
-    since date,
-    primary key (sin, pid),
-    foreign key constraint(...)
-  );
-  ```
-  - relationships with key constraints
-    - better to combine tables for one-to-many relationships
-    - generally has a single **PRIMARY KEY**
+```sql
+CREATE TABLE Works_on (
+  sin char(11),
+  pid integer,
+  since date,
+  primary key (sin, pid),
+  foreign key constraint(...)
+)
+```
+
+Relationships with Key Constraints
+  - better to combine tables for one-to-many relationships
+  - generally has a single **PRIMARY KEY**
   - relations with participation restraints
-    - use a **NOT NULL**    
-  - set-value attributes
-    - cannot store more than one value in a field
-    - combination of (sin, hobby) becomes primary key        
-  - multi-value attributes and many-to-Many relationships
-    - primary key must be tuple across relationships
-    - does not include primary key of employee table (belongs to only that table)
-  - weak entities
-    - weak entity set and identifying relationship set are translated into a single table
-    ```sql
-    CREATE TABLE foo(
-      ....
-      ON DELETE CASCADE
-    );
-    ```
-  - ISA hierarchies
-    - general approach: 3 relations
+    - use a **NOT NULL**
+  ```sql
+  CREATE TABLE emp_works (
+    sin CHAR,
+    name CHAR,
+    did CHAR,
+    since DATE,
+    PRIMARY KEY sin,
+    FOREIGN KEY (did) REFERENCES Departments
+  )
+  ```
+
+Participation Constraints
+  - similar to _Key Constraints_, except relationship attributes must have __NOT NULL__
+
+Set-Value Attributes
+  - cannot store more than one value in a field
+  - same problem arises when mapping a relationship with a set-value attribute
+  - combination of (sin, hobby) becomes primary key
+  ```sql
+  CREATE TABLE Employees (
+    sin CHAR,
+    name CHAR,
+    hobby CHAR,
+    PRIMARY KEY (sin, hobby)
+  )
+  ```
+
+Multi-value Attributes and Many-to-Many Relationships
+  - primary key must be tuple across relationships
+  - does not include primary key of employee table (belongs to only that table)
+
+Weak Entities
+  - weak entity set and identifying relationship set are translated into a single table
+  ```sql
+  CREATE TABLE foo(
+    ....
+    ON DELETE CASCADE
+  )
+  ```
+
+ISA hierarchies
+  - general approach: 3 relations
+  ```sql
+  CREATE TABLE Contract_Emps(
+    sin CHAR NOT NULL,
+    ....
+    FOREIGN KEY sin REFERENCES Employees
+    ON DELETE CASCADE
+  )
+  ```
+  - alternate approach: split into types of ISAs, provided the relationship covers
 
 ## SQL
 Basic queries
   ```sql
   SELECT <columns>
-  FROM R1 r1, R2 r2,...
+  FROM R1 r1, R2 r2,... -- implicit join
   WHERE condition;
   ```
   - is conceptually equivalent to
