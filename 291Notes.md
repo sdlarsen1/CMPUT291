@@ -191,3 +191,84 @@ Division
     - s(B1, B2,..., Bn)
     - r/s with attributes A1,...,An is the set of all tuples <a> such that for every tuple <b> in s, <a,b> is in r
   - **more info in bookmarked webpages**
+
+## Rational Normalization Theory
+Limitations of Relational Database Designs
+  - provides set of guidelines, does not result in unique schema
+  - pitfalls:
+    - repetition of information
+    - inability to represent certain information
+    - loss of information
+  - normalization theory provides a mechanism for analyzing and refining the schema produced by an ER design
+
+Redundancy
+  - dependencies between attributes cause redundancy
+    - eg. all addresses in the same town have the same zip code
+  - set-value attributes in the ER diagram result in multiple rows in corresponding table
+    - eg. Person(SSN, name, address, hobby)
+    - person with multiple hobbies yields multiple rows in table Person
+      - the association between name and address for the same person is stored redundantly
+      - hobby cannot be __null__ because it is part of the _primary key_
+
+Anomalies
+  - __update anomaly__: a change in address must be made in several places
+  - __deletion anomaly__: suppose a person gives up all hobbies
+    - set hobby attribute to null?
+      - no, since hobby is part of key
+    - delete entire row?
+      - no, since we lose other information in the row
+  - __insertion anomaly__: hobby value must be supplied for any inserted row since hobby is part of key
+
+Decomposition
+  - Solution: use two relations to store Person information
+    - Person1(SSN, name, address)
+    - Hobbies(SSN, hobby)
+  - decomposition is more general: people with hobbies can now be described
+  - no update anomalies:
+    - name and address stored once
+    - a hobby can be separately supplied or deleted
+
+Functional Dependencies
+--
+  - Definition: a __functional dependency__ FD on a relation schema R is a _constraint_ X -> Y, where X and Y are subsets of attributes of R
+  - Definition: a __constraint__ on a relation schema R i a condition that has to be satisfied in every allowable instance of ref
+  - Definition: an FD X->Y is __satisfied__ in an instance r of R is for every pair of tuples, t and s: if t and s agree on all attributes in X then they must agree on all attributes in Y
+
+Notation/Conventions
+  - capital letters from the beginning of the alphabet denote __single__ attributes
+    - eg. A, B, C
+  - capital letters from the end of the alphabet denote __sets__ of attributes
+    - eg. X, Y, Z
+  - string ABC denotes the {A,B,C}
+  - string XY denotes X + Y
+  - string XA denotes X + {A}
+
+Functional Dependencies Cont'd
+  - FD must be identified base on semantics of application
+  - given a particular allowable instance r1 of R, we can check if it violates some FD f, but we cannot tell if f holds over the schema r
+  - a key constraint is a special kind of functional dependency: all attributes of the relation occur in the right side of the FD
+    - SSN -> SSN, name, address
+    - Address -> ZipCode
+    - VIN -> Manufacturer, Engine Type, etc.
+
+Entailment, Closure, Equivalence
+  - Definition: if _F_ is a set of FDs on schema _R_ and _f_ is another FD on _R_, then _F_ __entails__ _f_ if every instance _r_ of _R_ that satisfies every FD in _F_ also satisfies _f_
+  - Eg. F = {A → B, B → C}, and f is A → C
+    - if StreetAddr → Town and Town → Zip, then StreetAddr → Zip
+  - Definition: the __closure__ of _F_, denoted _F+_, is the set of all FDs entailed by _F_
+  - Definition: _F_ and _G_ are __equivalent__ if _F_ entails _G_ and _G_ entails _F_
+
+Entailment Cont'd
+  - satisfaction, entailment, and equivalence are _semantic_ concepts - defined in terms of the actual relations in the "real world"
+    - they define _what these notions are_, not how to compute them
+  - how to check if _F_ entails _f_ or if _F_ and _G_ are equivalent?
+    - Solution: find algorithmic, _syntactic_ ways to compute these notions
+
+Armstrong's Axioms for FD
+  - __Reflexivity__: If Y subset X, the X → Y (trivial FD)
+    - Name, address → Name
+  - __Augmentations__: if X → Y then XZ → YZ
+    - if Town → Zip, then Town, Name → Zip, Name
+  - __Transitivity__: if X → Y and Y → Z, then X → Z
+  - __Union__: if X → Y and X → Z, then X → YZ
+  - __Decomposition__: if X → YZ, then X → Y and X → Z
