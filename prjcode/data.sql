@@ -46,7 +46,7 @@ INSERT INTO diagnoses VALUES
 ('12345', '22346', '12349', '2016-10-12', 'T-Virus'),
 ('12345', '22345', '12348', '2016-10-15', 'The Abyss');
 
--- (hcno, chart_id, staff_id, osb_date, symptom)
+-- (hcno, chart_id, staff_id, obs_date, symptom)
 INSERT INTO symptoms VALUES
 ('12345', '22345', '12348', '2016-10-14', 'Not breathing'),
 ('12345', '22345', '12348', '2016-10-18', 'Broken arm');
