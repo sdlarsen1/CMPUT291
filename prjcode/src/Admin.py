@@ -1,54 +1,12 @@
-import sqlite3, os, hashlib as hl
+from LogInOut import logout
 
-def login(cursor):
-    os.system('clear')
-    result = None
-    while (result == None):
-        print "Welcome to the hospital database!"
-        usr = raw_input("Input username >").lower()
-        pas = raw_input("Input password >")
+'''
+Commands for admin staff.
+'''
 
-        # fetch hashed password, then verify
-        cursor.execute('''
-                        SELECT password
-                        FROM staff
-                        WHERE login = ?; ''', (usr,))
-
-        passResult = cursor.fetchone()
-        hash = passResult[0]
-        hashPass = hl.sha224(pas)
-
-        if hash.digest() == hashPass.digest():
-            cursor.execute('''
-                            SELECT staff_id
-                            FROM staff
-                            WHERE login = ?
-                            AND password = ?; ''', (usr, pas,))
-
-            result = cursor.fetchone()
-        else: print "Invalid password!"
-
-        if result == None:
-            os.system('clear')
-            print "Invalid login!"
-
-    staffID = result[0]
-    return staffID
-
-def getRole(cursor, staffID):
-    cursor.execute('''
-                SELECT role
-                FROM staff
-                WHERE staff_id = ?;''', (staffID,))
-    result = cursor.fetchone()
-    role = result[0]
-    #print role
-    return role
-
-def logout():
-    # TODO
 
 def adminCommands(cursor):
+
     choice = int(raw_input('''Type integer value of desired task:
                         1. Perform task 1
                         2. Perform task 2
@@ -101,32 +59,16 @@ def adminCommands(cursor):
         rows = cursor.fetchall()
         print rows
 
-
     elif choice == 4:
         drug = raw_input("What drug are you interested in? >").lower()
 
+        cursor.execute('''
+                        SELECT DISTINCT d.diagnosis
+                        FROM diagnoses d, medications m
+                        WHERE m.hcno = d.hcno
+                        AND JULIANDAY(d.ddate) < JULIANDAY(m.mdate);''')
+        rows = cursor.fetchall()
+        print rows
+
     else:
         logout()
-
-'''
-This is the main function.
-'''
-def main():
-    conn = sqlite3.connect('hospital.db')
-    cursor = conn.cursor()
-
-    staffID = login(cursor)
-    os.system('clear')
-    role = getRole(cursor, staffID)
-
-    if role == 'D':
-
-    elif role == 'N':
-
-    elif role == 'A':
-        # functions for admin commands
-        adminCommands(cursor)
-
-
-if __name__ == "__main__":
-    main()
