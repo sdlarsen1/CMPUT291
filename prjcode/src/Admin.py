@@ -16,7 +16,7 @@ def adminCommands(cursor):
 
     os.system('clear')
     if choice == 1:
-        print "Specify time periods in YYYY-MM-DD format"
+        print "Specify time periods in YYYY-MM-DD HH:MM:SS format."
         start_date = raw_input("Specify starting date >")
         end_date = raw_input("Specify ending date >")
 
@@ -31,7 +31,7 @@ def adminCommands(cursor):
         print rows
 
     elif choice == 2:
-        print "Specify time periods in YYYY-MM-DD format"
+        print "Specify time periods in YYYY-MM-DD HH:MM:SS format."
         start_date = raw_input("Specify starting date >")
         end_date = raw_input("Specify ending date >")
 
@@ -66,7 +66,8 @@ def adminCommands(cursor):
                         SELECT DISTINCT d.diagnosis
                         FROM diagnoses d, medications m
                         WHERE m.hcno = d.hcno
-                        AND JULIANDAY(d.ddate) < JULIANDAY(m.mdate);''')
+                        AND JULIANDAY(d.ddate) < JULIANDAY(m.mdate)
+                        AND m.drug_name = ?;''', (drug,))
         rows = cursor.fetchall()
         print rows
 

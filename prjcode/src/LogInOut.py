@@ -2,14 +2,14 @@ import hashlib as hl
 import os
 
 '''
-Login function appears upon starting application.
+Login function appears upon starting application. Called from Main.
 '''
 
 
 def login(cursor):
     os.system('clear')
     result = None
-    while result == None:
+    while result is None:
         print "Welcome to the hospital database!"
         usr = raw_input("Input username >").lower()
         pas = raw_input("Input password >")
@@ -35,7 +35,7 @@ def login(cursor):
         else:
             print "Invalid password!"
 
-        if result == None:
+        if result is None:
             os.system('clear')
             print "Invalid login!"
 
@@ -44,4 +44,4 @@ def login(cursor):
 
 
 def logout():
-    return 0
+    return True
