@@ -14,6 +14,7 @@ def main():
 
     if choice == '1':
         addUser(cursor)
+        conn.commit()
 
     else:
         staffID = login(cursor)

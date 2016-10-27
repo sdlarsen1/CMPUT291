@@ -7,10 +7,10 @@ def addUser(cursor):
     role = raw_input("Enter role (D, N, A) >").upper()
     name = raw_input("Enter the full name of the person you would like to add >")
     username = raw_input("Enter desired username >")
+    password = raw_input("Enter desired password >")
 
-    password = passwordConf = None
+    passwordConf = None
     while password != passwordConf:
-        password = raw_input("Enter desired password >")
         passwordConf = raw_input("Re-enter password to confirm >")
 
         if password == passwordConf:
@@ -19,7 +19,6 @@ def addUser(cursor):
 
             cursor.execute('''
                             INSERT INTO staff VALUES
-                            (?,?,?,?,?);''', (id, role, name, username, hashPass,))
-            cursor.commit()
+                            (?,?,?,?,?);''', (id, role, name, username, hashPass.hexdigest(),))
         else:
             print "Passwords do not match!"

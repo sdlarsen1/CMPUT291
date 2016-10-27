@@ -22,7 +22,7 @@ def login(cursor):
         password = passResult[0]
         hashPass = hl.sha224(pas)
 
-        if password.digest() == hashPass.digest():  # verify password
+        if password == hashPass.hexdigest():  # verify password
             cursor.execute('''
                             SELECT staff_id
                             FROM staff
