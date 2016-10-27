@@ -11,10 +11,10 @@ def nurseCommands(cursor, conn, staff_id):
 
         os.system("clear")
         choice = int(raw_input('''Type integer value of desired task:
-                            1. Perform task 1
-                            2. Perform task 2
-                            3. Perform task 3
-                            4. Perform task 4
+                            1. Admit a patient.
+                            2. Discharge a patient.
+                            3. Get patient chart info.
+                            4. Record a symptom.
                             5. Log out\n'''))
 
         if choice == 1:

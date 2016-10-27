@@ -10,10 +10,10 @@ def doctorCommands(cursor, conn, staff_id):
 
         os.system("clear")
         choice = int(raw_input('''Type integer value of desired task:
-                            1. Perform task 1
-                            2. Perform task 2
-                            3. Perform task 3
-                            4. Perform task 4
+                            1. Get patient chart info.
+                            2. Record a symptom.
+                            3. Record a diagnosis.
+                            4. Prescribe medication.
                             5. Log out\n'''))
 
         if choice == 1:
@@ -190,12 +190,12 @@ def recordDiagnosis(cursor, conn, staff_id):  # doctor 3
             if hcno == row[0]:
                 patientNotSelected = False
                 break
-            if patientNotSelected:
-                print "Patient #%s does not have an open chart" %hcno
+        if patientNotSelected:
+            print "Patient #%s does not have an open chart" %hcno
 
-                choice = raw_input("Enter 'quit' to exit task or enter anything to try another Health care number >").lower()
-                if choice == 'quit':
-                    return False
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another Health care number >").lower()
+            if choice == 'quit':
+                return False
 
     while chartNotSelected:
         chart_id = raw_input("Enter Patients Chart Number >")
