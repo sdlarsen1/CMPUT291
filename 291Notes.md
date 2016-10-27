@@ -192,7 +192,7 @@ Division
     - r/s with attributes A1,...,An is the set of all tuples <a> such that for every tuple <b> in s, <a,b> is in r
   - **more info in bookmarked webpages**
 
-## Rational Normalization Theory
+# Rational Normalization Theory
 Limitations of Relational Database Designs
   - provides set of guidelines, does not result in unique schema
   - pitfalls:
@@ -290,3 +290,22 @@ Decomposition into BCNF
         - to deal with SD → P, decompose into SDP, CSJDQV
         - to deal with J → S, decompose CSJDQV into JS and CDJQV
   - in general, several dependencies may cause violations of BCNF. The order in which we "deal with" them could lead to very different relations
+
+## Third Normal Form (3NF)
+  - a relational schema R is in 3NF if for every FD X → Y associated with R either
+    - Y is a subset of X (ie, the FD is trivial)
+    - X is a superkey of R
+    - every A ∈ Y is part of some key of R
+  - 3NF is weaker than BCNF
+    - every schema in BCNF is also in 3NF
+  - see slides for example
+
+## Minimal Cover
+  - a minimal cover of set dependencies, T, is a set of dependencies, U, s.t.
+    - U is equivalent to T
+    - all FDs in U have the form X → A where A is a single attribute
+    - it is not possible to make U smaller by
+      - deleting an FD
+      - deleting an attribute from an FD
+  - FDs and attributes that can be deleted in this way are called _redundant_
+  - see slides for example on computing Minimal Cover

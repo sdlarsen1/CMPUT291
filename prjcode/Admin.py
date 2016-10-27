@@ -34,6 +34,7 @@ def adminCommands(cursor):
                             GROUP BY s.name, m.drug_name;''', (start_date, end_date,))
             rows = cursor.fetchall()
             print rows
+            raw_input("Press Enter to go back to menu.")  # return to menu
 
         # perform task 2
         elif choice == 2:
@@ -50,6 +51,7 @@ def adminCommands(cursor):
                             GROUP BY d.category;''', (end_date, start_date,))
             rows = cursor.fetchall()
             print rows
+            raw_input("Press Enter to go back to menu.")  # return to menu
 
         # perform task 3
         elif choice == 3:
@@ -65,6 +67,7 @@ def adminCommands(cursor):
                             ORDER BY COUNT(*) DESC;''', (diagnosis,))
             rows = cursor.fetchall()
             print rows
+            raw_input("Press Enter to go back to menu.")  # return to menu
 
         # perform task 4
         elif choice == 4:
@@ -78,6 +81,7 @@ def adminCommands(cursor):
                             AND m.drug_name = ?;''', (drug,))
             rows = cursor.fetchall()
             print rows
+            raw_input("Press Enter to go back to menu.")  # return to menu
 
         # else logout
         else:

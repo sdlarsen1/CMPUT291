@@ -1,15 +1,15 @@
 INSERT INTO staff VALUES
-('12345', 'A', 'Admin', 'admin', '$6$rounds=656000$ZIJXVzcCG.NOUjQ1$VEstY9Dk6v.h40zQDy02f8Vusqz4b3OYj4vGE3lirOtb4A41XpVoiusPxc24gqniw7NWqjQGX3ULa65iGkHnG.'),
-('12346', 'A', 'Admin01', 'admin01', '$6$rounds=656000$6EOlHE8Qb3DuIq8d$DOJPSbsp5juO6.YywdAa21VajkNha3Cv7NGRSCDBhY5rIy3wLo7qmZZovycP8NgFQGIbwjaKhL2i08VigxUPK0'),
-('12347', 'A', 'Admin02', 'admin02', '$6$rounds=656000$8SHX8pHNoo9QrX6K$chwr9oPUl0fCUXJju.WI2bj5UgVqB/TO5ZQboc4f1ElTgGLwxHgraxkwIxhWxl7QArZl6aG1idr/KoL1Y9/vH.'),
+('12345', 'A', 'Admin', 'admin', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01'),
+('12346', 'A', 'Admin01', 'admin01', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01'),
+('12347', 'A', 'Admin02', 'admin02', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01'),
 
-('12348', 'D', 'Doctor', 'doctor', '$6$rounds=656000$Wcxmpt6gHB/ukwAa$BxQdnqeDZbuRf9588j9EjlLWNwqsCaqpxGsQJ1zO95oiJ.da/P34jc1F9wfhLZ6c37MH/1fD.9YnTKSff68TJ1'),
-('12349', 'D', 'Doctor01', 'doctor01', '$6$rounds=656000$Wcxmpt6gHB/ukwAa$BxQdnqeDZbuRf9588j9EjlLWNwqsCaqpxGsQJ1zO95oiJ.da/P34jc1F9wfhLZ6c37MH/1fD.9YnTKSff68TJ1'),
-('12350', 'D', 'Doctor02', 'doctor02', '$6$rounds=656000$Y4VI8UPii0HIzR.y$kJcuNRBwTQocrlqQn8nfoAusf/tmPfNM7TNhkxkoDEG1lq77h4OSb8hX..lNCvlF5VL.RGlEgdHBLdM5fOE5L0'),
+('12348', 'D', 'Doctor', 'doctor', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01'),
+('12349', 'D', 'Doctor01', 'doctor01', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01'),
+('12350', 'D', 'Doctor02', 'doctor02', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01'),
 
-('12351', 'N', 'Nurse', 'nurse', '$6$rounds=656000$yZZGQMRTWO3UNVcU$1YxOuGvwTwIZjYJhhQtbcBpMX.kVwM3ET.7L2DTxCSkctNkcFfW3Bbou3yxk3Dn0C4WQ/CYn28CknNr2AZ.La0'),
-('12352', 'N', 'Nurse01', 'nurse01', '$6$rounds=656000$WSftywkXHWBSuWTy$3gkhDF6HjOdkIVuStxv4/ufj1H7Z5QGdj7XIie17URjqCBWMKhazlrGUwD8qmVezLDaiCkFsoyT6Mbfj2oPit1'),
-('12353', 'N', 'Nurse02', 'nurse02', '$6$rounds=656000$1L8Sg6vaj9JHGwp5$yj69B43SqbuOaQNqWJNXNH16Fv0/enr6lpdNRZTEV0v2c8quOOeZIK7Gt6bHlp1MEzUbTW1xrIOaCNQAf2B7k.');
+('12351', 'N', 'Nuse', 'nurse', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01'),
+('12352', 'N', 'Nurse01', 'nurse01', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01'),
+('12353', 'N', 'Nurse02', 'nurse02', 'd63dc919e201d7bc4c825630d2cf25fdc93d4b2f0d46706d29038d01');
 
 INSERT INTO patients VALUES
 ('12345', 'Patient01', '18-23', '116 St & 85 Ave, Edmonton, AB T6G 2R3', '780-492-5050', '780-423-4567'),

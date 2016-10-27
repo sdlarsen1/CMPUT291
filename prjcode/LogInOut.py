@@ -1,4 +1,4 @@
-import hashlib as hl
+import hashlib
 import os
 
 
@@ -12,26 +12,14 @@ def login(cursor):
         usr = raw_input("Input username >").lower()
         pas = raw_input("Input password >")
 
-        # fetch hashed password, then verify
+        hashPass = hashlib.sha224(pas)  # hash given password
         cursor.execute('''
-                        SELECT password
+                        SELECT staff_id
                         FROM staff
-                        WHERE login = ?; ''', (usr,))
+                        WHERE login = ?
+                        AND password = ?;''', (usr, hashPass.hexdigest(),))
 
-        passResult = cursor.fetchone()
-        password = passResult[0]
-        hashPass = hl.sha224(pas)
-
-        if password == hashPass.hexdigest():  # verify password
-            cursor.execute('''
-                            SELECT staff_id
-                            FROM staff
-                            WHERE login = ?
-                            AND password = ?; ''', (usr, pas,))
-
-            result = cursor.fetchone()
-        else:
-            print "Invalid password!"
+        result = cursor.fetchone()
 
         if result is None:
             os.system('clear')
