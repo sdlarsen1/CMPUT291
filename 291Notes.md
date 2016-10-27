@@ -230,7 +230,7 @@ Decomposition
 
 Functional Dependencies
 --
-  - Definition: a __functional dependency__ FD on a relation schema R is a _constraint_ X -> Y, where X and Y are subsets of attributes of R
+  - Definition: a __functional dependency__ (FD) on a relation schema R is a _constraint_ X -> Y, where X and Y are subsets of attributes of R
   - Definition: a __constraint__ on a relation schema R i a condition that has to be satisfied in every allowable instance of ref
   - Definition: an FD X->Y is __satisfied__ in an instance r of R is for every pair of tuples, t and s: if t and s agree on all attributes in X then they must agree on all attributes in Y
 
@@ -272,3 +272,21 @@ Armstrong's Axioms for FD
   - __Transitivity__: if X → Y and Y → Z, then X → Z
   - __Union__: if X → Y and X → Z, then X → YZ
   - __Decomposition__: if X → YZ, then X → Y and X → Z
+
+## BCNF
+  - __Definition__: a relation schema R = (R, F) is in _BCNF_ if for every FD → Y associated with R either
+    - Y is a subset of X (ie., the FD is trivial)
+    - X is a superkey of R
+  - Example: Person1(SSN, Name, Address)
+    - the only non-trivial FD is SSN → Name, Address
+    - since SSN is a key, Person1 is in BCNF
+
+Decomposition into BCNF
+  - Consider relation R with FDs F
+  - if X → Y violates BCNF (and X intersect Y ≠ emptyset),
+    decompose R into XY and R - Y
+    - repeated application of this idea will give us a collection of relations that are in BCNF and guaranteed to terminate
+      - eg. CSJDPQV, key C, JP → C, SD → P, J → S
+        - to deal with SD → P, decompose into SDP, CSJDQV
+        - to deal with J → S, decompose CSJDQV into JS and CDJQV
+  - in general, several dependencies may cause violations of BCNF. The order in which we "deal with" them could lead to very different relations

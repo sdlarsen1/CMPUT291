@@ -1,16 +1,14 @@
 import hashlib as hl
 import os
 
-'''
-Login function appears upon starting application. Called from Main.
-'''
 
-
+# Login function appears upon starting application. Called from Main.
 def login(cursor):
     os.system('clear')
     result = None
+    print "Welcome to the hospital database!"
     while result is None:
-        print "Welcome to the hospital database!"
+
         usr = raw_input("Input username >").lower()
         pas = raw_input("Input password >")
 
@@ -21,10 +19,10 @@ def login(cursor):
                         WHERE login = ?; ''', (usr,))
 
         passResult = cursor.fetchone()
-        hash = passResult[0]
+        password = passResult[0]
         hashPass = hl.sha224(pas)
 
-        if hash.digest() == hashPass.digest():
+        if password.digest() == hashPass.digest():  # verify password
             cursor.execute('''
                             SELECT staff_id
                             FROM staff
@@ -43,5 +41,17 @@ def login(cursor):
     return staffID
 
 
+# Function to logout, returns True
 def logout():
     return True
+
+
+# Function to get user's role after logging in
+def getRole(cursor, staffID):
+    cursor.execute('''
+                SELECT role
+                FROM staff
+                WHERE staff_id = ?;''', (staffID,))
+    result = cursor.fetchone()
+    role = result[0]
+    return role
