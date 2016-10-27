@@ -26,7 +26,7 @@ def nurseCommands(cursor, conn, staff_id):
             raw_input("Press Enter to go back to menu.")  # return to menu
 
         elif choice == 3:
-            getPatientChartInfo(cursor, conn)
+            getPatientChartInfo(cursor)
             raw_input("Press Enter to go back to menu.")  # return to menu
 
         elif choice == 4:
@@ -293,6 +293,11 @@ def recordSymptom(cursor, conn, staff_id):  # doctor 2, nurse 4
         if patientNotSelected:
             print "Patient #%s does not have an open chart" % hcno
 
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another Health care number >").lower()
+            if choice == 'quit':
+                return False
+
+
     while chartNotSelected:
         chart_id = raw_input("Enter Patients Chart Number >")
 
@@ -300,6 +305,9 @@ def recordSymptom(cursor, conn, staff_id):  # doctor 2, nurse 4
             chartNotSelected = False
         else:
             print "Patient #%s does not have a chart #%s that is open" % (hcno, chart_id)
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another chart number >").lower()
+            if choice == 'quit':
+                return False
 
     symptom = raw_input("Enter Patient Symptom >")
 

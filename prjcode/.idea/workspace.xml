@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea7bdb98-01f1-4a1b-8543-bff32d1bc063" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Nurse.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hospital.db" afterPath="$PROJECT_DIR$/hospital.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin.py" afterPath="$PROJECT_DIR$/Admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main.py" afterPath="$PROJECT_DIR$/Main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Doctor.py" afterPath="$PROJECT_DIR$/Doctor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Nurse.py" afterPath="$PROJECT_DIR$/Nurse.py" />
     </list>
     <ignored path="prjcode.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +38,8 @@
       <file leaf-file-name="data.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            <state relative-caret-position="285">
+              <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -100,53 +98,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Doctor.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Doctor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Doctor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="162">
+              <caret line="155" column="36" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1477603975000" expanded="true" signature="1267:1340" ph="select chart... charts" />
-                <marker date="1477603975000" expanded="true" signature="1951:2042" ph="select staff... symptoms" />
-                <marker date="1477603975000" expanded="true" signature="2120:2208" ph="select staff... diagnoses" />
-                <marker date="1477603975000" expanded="true" signature="2286:2404" ph="select staff... medications" />
-                <marker date="1477603975000" expanded="true" signature="3244:3301" ph="select hcno,... charts" />
-                <marker date="1477603975000" expanded="true" signature="3966:4019" ph="insert into symptoms... " />
-                <marker date="1477603975000" expanded="true" signature="4165:4222" ph="select hcno,... charts" />
-                <marker date="1477603975000" expanded="true" signature="4884:4938" ph="insert into diagnoses... " />
-                <marker date="1477603975000" expanded="true" signature="5086:5143" ph="select hcno,... charts" />
-                <marker date="1477603975000" expanded="true" signature="5814:5879" ph="select lower... reportedallergies" />
-                <marker date="1477603975000" expanded="true" signature="5961:6099" ph="select lower... reportedallergies" />
-                <marker date="1477603975000" expanded="true" signature="6521:6648" ph="select d.sug... dosage" />
-                <marker date="1477603975000" expanded="true" signature="7313:7406" ph="insert into medications... " />
+                <element signature="e#1168#3154#0" expanded="false" />
+                <marker date="1477606518000" expanded="true" signature="1267:1340" ph="select chart... charts" />
+                <marker date="1477606518000" expanded="true" signature="1951:2042" ph="select staff... symptoms" />
+                <marker date="1477606518000" expanded="true" signature="2120:2208" ph="select staff... diagnoses" />
+                <marker date="1477606518000" expanded="true" signature="2286:2404" ph="select staff... medications" />
+                <marker date="1477606518000" expanded="true" signature="3244:3301" ph="select hcno,... charts" />
+                <marker date="1477606518000" expanded="true" signature="4349:4402" ph="insert into symptoms... " />
+                <marker date="1477606518000" expanded="true" signature="4548:4605" ph="select hcno,... charts" />
+                <marker date="1477606518000" expanded="true" signature="5634:5688" ph="insert into diagnoses... " />
+                <marker date="1477606518000" expanded="true" signature="5839:5896" ph="select hcno,... charts" />
+                <marker date="1477606518000" expanded="true" signature="7006:7071" ph="select lower... reportedallergies" />
+                <marker date="1477606518000" expanded="true" signature="7153:7291" ph="select lower... reportedallergies" />
+                <marker date="1477606518000" expanded="true" signature="7713:7840" ph="select d.sug... dosage" />
+                <marker date="1477606518000" expanded="true" signature="8505:8598" ph="insert into medications... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Nurse.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Nurse.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Nurse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            <state relative-caret-position="795">
+              <caret line="307" column="103" selection-start-line="307" selection-start-column="103" selection-end-line="307" selection-end-column="103" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1477604441000" expanded="true" signature="1308:1365" ph="select * fro... patients" />
-                <marker date="1477604441000" expanded="true" signature="2201:2273" ph="select hcno,... charts" />
-                <marker date="1477604441000" expanded="true" signature="2582:2664" ph="update chart... " />
-                <marker date="1477604441000" expanded="true" signature="2747:2776" ph="select chart... charts" />
-                <marker date="1477604441000" expanded="true" signature="3008:3060" ph="insert into charts... " />
-                <marker date="1477604441000" expanded="true" signature="3188:3215" ph="select hcno patients" />
-                <marker date="1477604441000" expanded="true" signature="3661:3702" ph="insert into patients... " />
-                <marker date="1477604441000" expanded="true" signature="3998:4055" ph="select * fro... patients" />
-                <marker date="1477604441000" expanded="true" signature="4756:4830" ph="update chart... " />
-                <marker date="1477604441000" expanded="true" signature="5038:5123" ph="select chart... charts" />
-                <marker date="1477604441000" expanded="true" signature="5891:5994" ph="select staff... symptoms" />
-                <marker date="1477604441000" expanded="true" signature="6084:6184" ph="select staff... diagnoses" />
-                <marker date="1477604441000" expanded="true" signature="6275:6405" ph="select staff... medications" />
-                <marker date="1477604441000" expanded="true" signature="7320:7385" ph="select hcno,... charts" />
-                <marker date="1477604441000" expanded="true" signature="8178:8231" ph="insert into symptoms... " />
+                <element signature="e#102#1099#0" expanded="false" />
+                <element signature="e#1145#3095#0" expanded="false" />
+                <element signature="e#3161#3783#0" expanded="false" />
+                <element signature="e#3835#4855#0" expanded="false" />
+                <element signature="e#4917#7217#0" expanded="false" />
+                <marker date="1477605814000" expanded="true" signature="1302:1359" ph="select * fro... patients" />
+                <marker date="1477605814000" expanded="true" signature="2195:2267" ph="select hcno,... charts" />
+                <marker date="1477605814000" expanded="true" signature="2576:2658" ph="update chart... " />
+                <marker date="1477605814000" expanded="true" signature="2741:2770" ph="select chart... charts" />
+                <marker date="1477605814000" expanded="true" signature="3002:3054" ph="insert into charts... " />
+                <marker date="1477605814000" expanded="true" signature="3182:3209" ph="select hcno patients" />
+                <marker date="1477605814000" expanded="true" signature="3655:3696" ph="insert into patients... " />
+                <marker date="1477605814000" expanded="true" signature="3992:4049" ph="select * fro... patients" />
+                <marker date="1477605814000" expanded="true" signature="4750:4824" ph="update chart... " />
+                <marker date="1477605814000" expanded="true" signature="5032:5117" ph="select chart... charts" />
+                <marker date="1477605814000" expanded="true" signature="5885:5988" ph="select staff... symptoms" />
+                <marker date="1477605814000" expanded="true" signature="6078:6178" ph="select staff... diagnoses" />
+                <marker date="1477605814000" expanded="true" signature="6269:6399" ph="select staff... medications" />
+                <marker date="1477605814000" expanded="true" signature="7314:7379" ph="select hcno,... charts" />
+                <marker date="1477605814000" expanded="true" signature="8536:8589" ph="insert into symptoms... " />
               </folding>
             </state>
           </provider>
@@ -172,9 +176,9 @@
         <option value="$PROJECT_DIR$/Admin.py" />
         <option value="$PROJECT_DIR$/DoctorCommands.py" />
         <option value="$PROJECT_DIR$/data.sql" />
-        <option value="$PROJECT_DIR$/Doctor.py" />
-        <option value="$PROJECT_DIR$/Nurse.py" />
         <option value="$PROJECT_DIR$/Main.py" />
+        <option value="$PROJECT_DIR$/Nurse.py" />
+        <option value="$PROJECT_DIR$/Doctor.py" />
       </list>
     </option>
   </component>
@@ -463,7 +467,7 @@
     <frame x="0" y="23" width="1280" height="773" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25767368" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18659128" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977098" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -496,7 +500,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Nurse.py</url>
+          <line>190</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -637,14 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -660,29 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Doctor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1477603975000" expanded="true" signature="1267:1340" ph="select chart... charts" />
-            <marker date="1477603975000" expanded="true" signature="1951:2042" ph="select staff... symptoms" />
-            <marker date="1477603975000" expanded="true" signature="2120:2208" ph="select staff... diagnoses" />
-            <marker date="1477603975000" expanded="true" signature="2286:2404" ph="select staff... medications" />
-            <marker date="1477603975000" expanded="true" signature="3244:3301" ph="select hcno,... charts" />
-            <marker date="1477603975000" expanded="true" signature="3966:4019" ph="insert into symptoms... " />
-            <marker date="1477603975000" expanded="true" signature="4165:4222" ph="select hcno,... charts" />
-            <marker date="1477603975000" expanded="true" signature="4884:4938" ph="insert into diagnoses... " />
-            <marker date="1477603975000" expanded="true" signature="5086:5143" ph="select hcno,... charts" />
-            <marker date="1477603975000" expanded="true" signature="5814:5879" ph="select lower... reportedallergies" />
-            <marker date="1477603975000" expanded="true" signature="5961:6099" ph="select lower... reportedallergies" />
-            <marker date="1477603975000" expanded="true" signature="6521:6648" ph="select d.sug... dosage" />
-            <marker date="1477603975000" expanded="true" signature="7313:7406" ph="insert into medications... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-18">
@@ -691,27 +671,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Nurse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        <state relative-caret-position="795">
+          <caret line="307" column="103" selection-start-line="307" selection-start-column="103" selection-end-line="307" selection-end-column="103" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1477604441000" expanded="true" signature="1308:1365" ph="select * fro... patients" />
-            <marker date="1477604441000" expanded="true" signature="2201:2273" ph="select hcno,... charts" />
-            <marker date="1477604441000" expanded="true" signature="2582:2664" ph="update chart... " />
-            <marker date="1477604441000" expanded="true" signature="2747:2776" ph="select chart... charts" />
-            <marker date="1477604441000" expanded="true" signature="3008:3060" ph="insert into charts... " />
-            <marker date="1477604441000" expanded="true" signature="3188:3215" ph="select hcno patients" />
-            <marker date="1477604441000" expanded="true" signature="3661:3702" ph="insert into patients... " />
-            <marker date="1477604441000" expanded="true" signature="3998:4055" ph="select * fro... patients" />
-            <marker date="1477604441000" expanded="true" signature="4756:4830" ph="update chart... " />
-            <marker date="1477604441000" expanded="true" signature="5038:5123" ph="select chart... charts" />
-            <marker date="1477604441000" expanded="true" signature="5891:5994" ph="select staff... symptoms" />
-            <marker date="1477604441000" expanded="true" signature="6084:6184" ph="select staff... diagnoses" />
-            <marker date="1477604441000" expanded="true" signature="6275:6405" ph="select staff... medications" />
-            <marker date="1477604441000" expanded="true" signature="7320:7385" ph="select hcno,... charts" />
-            <marker date="1477604441000" expanded="true" signature="8178:8231" ph="insert into symptoms... " />
+            <element signature="e#102#1099#0" expanded="false" />
+            <element signature="e#1145#3095#0" expanded="false" />
+            <element signature="e#3161#3783#0" expanded="false" />
+            <element signature="e#3835#4855#0" expanded="false" />
+            <element signature="e#4917#7217#0" expanded="false" />
+            <marker date="1477605814000" expanded="true" signature="1302:1359" ph="select * fro... patients" />
+            <marker date="1477605814000" expanded="true" signature="2195:2267" ph="select hcno,... charts" />
+            <marker date="1477605814000" expanded="true" signature="2576:2658" ph="update chart... " />
+            <marker date="1477605814000" expanded="true" signature="2741:2770" ph="select chart... charts" />
+            <marker date="1477605814000" expanded="true" signature="3002:3054" ph="insert into charts... " />
+            <marker date="1477605814000" expanded="true" signature="3182:3209" ph="select hcno patients" />
+            <marker date="1477605814000" expanded="true" signature="3655:3696" ph="insert into patients... " />
+            <marker date="1477605814000" expanded="true" signature="3992:4049" ph="select * fro... patients" />
+            <marker date="1477605814000" expanded="true" signature="4750:4824" ph="update chart... " />
+            <marker date="1477605814000" expanded="true" signature="5032:5117" ph="select chart... charts" />
+            <marker date="1477605814000" expanded="true" signature="5885:5988" ph="select staff... symptoms" />
+            <marker date="1477605814000" expanded="true" signature="6078:6178" ph="select staff... diagnoses" />
+            <marker date="1477605814000" expanded="true" signature="6269:6399" ph="select staff... medications" />
+            <marker date="1477605814000" expanded="true" signature="7314:7379" ph="select hcno,... charts" />
+            <marker date="1477605814000" expanded="true" signature="8536:8589" ph="insert into symptoms... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Doctor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="155" column="36" selection-start-line="155" selection-start-column="36" selection-end-line="155" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#1168#3154#0" expanded="false" />
+            <marker date="1477606518000" expanded="true" signature="1267:1340" ph="select chart... charts" />
+            <marker date="1477606518000" expanded="true" signature="1951:2042" ph="select staff... symptoms" />
+            <marker date="1477606518000" expanded="true" signature="2120:2208" ph="select staff... diagnoses" />
+            <marker date="1477606518000" expanded="true" signature="2286:2404" ph="select staff... medications" />
+            <marker date="1477606518000" expanded="true" signature="3244:3301" ph="select hcno,... charts" />
+            <marker date="1477606518000" expanded="true" signature="4349:4402" ph="insert into symptoms... " />
+            <marker date="1477606518000" expanded="true" signature="4548:4605" ph="select hcno,... charts" />
+            <marker date="1477606518000" expanded="true" signature="5634:5688" ph="insert into diagnoses... " />
+            <marker date="1477606518000" expanded="true" signature="5839:5896" ph="select hcno,... charts" />
+            <marker date="1477606518000" expanded="true" signature="7006:7071" ph="select lower... reportedallergies" />
+            <marker date="1477606518000" expanded="true" signature="7153:7291" ph="select lower... reportedallergies" />
+            <marker date="1477606518000" expanded="true" signature="7713:7840" ph="select d.sug... dosage" />
+            <marker date="1477606518000" expanded="true" signature="8505:8598" ph="insert into medications... " />
           </folding>
         </state>
       </provider>

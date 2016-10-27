@@ -144,19 +144,24 @@ def recordSymptom(cursor, conn, staff_id):  # doctor 2, nurse 4
 			if hcno == row[0]:
 				patientNotSelected = False
 				break
-		if patientNotSelected:
-			print "Patient #%s does not have an open chart" %hcno
+        if patientNotSelected:
+            print "Patient #%s does not have an open chart" %hcno
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another Health care number >").lower()
+            if choice == 'quit':
+                return False
 
-	while chartNotSelected:
+    while chartNotSelected:
 		chart_id = raw_input("Enter Patients Chart Number >")
 
-		if (hcno,chart_id) in patientCharts:
+		if (hcno, chart_id) in patientCharts:
 			chartNotSelected = False
 		else:
 			print "Patient #%s does not have a chart #%s that is open" %(hcno,chart_id)
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another chart number >").lower()
+            if choice == 'quit':
+                return False
 
-
-	symptom = raw_input("Enter Patient Symptom >")
+    symptom = raw_input("Enter Patient Symptom >")
 
 	cursor.execute('''
 		insert into symptoms values (?,?,?,datetime('now'),?);
@@ -186,17 +191,22 @@ def recordDiagnosis(cursor, conn, staff_id):  # doctor 3
 		if patientNotSelected:
 			print "Patient #%s does not have an open chart" %hcno
 
-	while chartNotSelected:
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another Health care number >").lower()
+            if choice == 'quit':
+                return False
+
+    while chartNotSelected:
 		chart_id = raw_input("Enter Patients Chart Number >")
 
 		if (hcno,chart_id) in patientCharts:
 			chartNotSelected = False
 		else:
 			print "Patient #%s does not have a chart #%s that is open" %(hcno,chart_id)
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another chart number >").lower()
+            if choice == 'quit':
+                return False
 
-
-
-	diagnosis = raw_input("Enter Diagnosis >")
+    diagnosis = raw_input("Enter Diagnosis >")
 
 	cursor.execute('''
 		insert into diagnoses values (?,?,?,datetime('now'),?);
@@ -207,35 +217,40 @@ def recordDiagnosis(cursor, conn, staff_id):  # doctor 3
 
 def recordMedication(cursor, conn, staff_id): # doctor 4
 
-	cursor.execute('''
+    cursor.execute('''
 		select hcno, chart_id
 		from charts
 		where edate is Null;
 		''')
 
-	patientCharts = cursor.fetchall()
+    patientCharts = cursor.fetchall()
 
-	chartNotSelected = True
-	patientNotSelected = True
-	while patientNotSelected:
-		hcno = raw_input("Enter Patient Health Care Number >")
-		for row in patientCharts:
-			if hcno == row[0]:
-				patientNotSelected = False
-				break
-		if patientNotSelected:
-			print "Patient #%s does not have an open chart" %hcno
+    chartNotSelected = True
+    patientNotSelected = True
+    while patientNotSelected:
+        hcno = raw_input("Enter Patient Health Care Number >")
+        for row in patientCharts:
+            if hcno == row[0]:
+                patientNotSelected = False
+                break
+        if patientNotSelected:
+            print "Patient #%s does not have an open chart" %hcno
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another Health care number >").lower()
+            if choice == 'quit':
+                return False
 
-	while chartNotSelected:
+    while chartNotSelected:
 		chart_id = raw_input("Enter Patients Chart Number >")
 
 		if (hcno,chart_id) in patientCharts:
 			chartNotSelected = False
 		else:
 			print "Patient #%s does not have a chart #%s that is open" %(hcno,chart_id)
+            choice = raw_input("Enter 'quit' to exit task or enter anything to try another chart number >").lower()
+            if choice == 'quit':
+                return False
 
-
-	medication = raw_input("Enter Drug Name >").lower()
+    medication = raw_input("Enter Drug Name >").lower()
 
 
 	cursor.execute('''
