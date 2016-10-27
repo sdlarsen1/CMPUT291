@@ -74,11 +74,13 @@ def adminCommands(cursor):
             drug = raw_input("What drug are you interested in? >").lower()
 
             cursor.execute('''
-                            SELECT DISTINCT d.diagnosis
+                            SELECT d.diagnosis
                             FROM diagnoses d, medications m
                             WHERE m.hcno = d.hcno
                             AND JULIANDAY(d.ddate) < JULIANDAY(m.mdate)
-                            AND m.drug_name = ?;''', (drug,))
+                            AND lower(m.drug_name) = ?
+                            group by d.diagnosis
+                            order by avg(m.amount);''', (drug,))
             rows = cursor.fetchall()
             print rows
             raw_input("Press Enter to go back to menu.")  # return to menu

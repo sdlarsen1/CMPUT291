@@ -3,6 +3,8 @@ import os
 from Admin import adminCommands
 from LogInOut import login, getRole
 from TableCommands import addUser
+from Doctor import doctorCommands
+from Nurse import nurseCommands
 
 
 # This is the main function
@@ -23,11 +25,11 @@ def main():
 
         if role == 'D':
             # functions for doctor commands
-            return 0
+            doctorCommands(cursor, conn, staffID)
 
         elif role == 'N':
             # functions for nurse commands
-            return 0
+            nurseCommands(cursor, conn, staffID)
 
         elif role == 'A':
             # functions for admin commands
