@@ -81,7 +81,7 @@ def adminCommands(cursor):
                             AND JULIANDAY(m.mdate) > JULIANDAY(d.ddate)
                             AND lower(d.diagnosis) = ?
                             GROUP BY m.drug_name
-                            ORDER BY COUNT(m.drug_name);''', (diagnosis,))
+                            ORDER BY COUNT(*);''', (diagnosis,))
             rows = cursor.fetchall()
 
             # format output
