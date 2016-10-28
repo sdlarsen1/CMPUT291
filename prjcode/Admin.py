@@ -12,10 +12,10 @@ def adminCommands(cursor):
 
         os.system("clear")
         choice = int(raw_input('''Type integer value of desired task:
-                            1. Perform task 1
-                            2. Perform task 2
-                            3. Perform task 3
-                            4. Perform task 4
+                            1. Show prescriptions.
+                            2. Show amount prescribed by category.
+                            3. Search for prescribed drugs by diagnosis.
+                            4. Search for diagnoses by drug.
                             5. Log out\n'''))
 
         os.system('clear')
@@ -57,7 +57,7 @@ def adminCommands(cursor):
                             WHERE m.drug_name = d.drug_name
                             AND JULIANDAY(m.start_med) > JULIANDAY(?)
                             AND JULIANDAY(m.end_med) < JULIANDAY(?)
-                            GROUP BY d.category;''', (end_date, start_date,))
+                            GROUP BY d.category;''', (start_date, end_date,))
             rows = cursor.fetchall()
 
             # format output
