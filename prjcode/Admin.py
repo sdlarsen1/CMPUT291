@@ -1,4 +1,5 @@
 from LogInOut import logout
+from prettytable import PrettyTable
 import os
 
 
@@ -33,7 +34,15 @@ def adminCommands(cursor):
                             AND julianday(m.end_med) < julianday(?)
                             GROUP BY s.name, m.drug_name;''', (start_date, end_date,))
             rows = cursor.fetchall()
-            print rows
+
+            # format output
+            table = PrettyTable()
+            table.padding_width = 1
+            table._set_field_names(["Doctor Name", "Drug Name", "Total Amount"])
+            for r in rows:
+                table.add_row([r[0], r[1], r[2]])
+            print table
+
             raw_input("Press Enter to go back to menu.")  # return to menu
 
         # perform task 2
@@ -50,7 +59,15 @@ def adminCommands(cursor):
                             AND JULIANDAY(m.end_med) < JULIANDAY(?)
                             GROUP BY d.category;''', (end_date, start_date,))
             rows = cursor.fetchall()
-            print rows
+
+            # format output
+            table = PrettyTable()
+            table.padding_width = 1
+            table._set_field_names(["Category", "Total Amount"])
+            for r in rows:
+                table.add_row([r[0], r[1]])
+            print table
+
             raw_input("Press Enter to go back to menu.")  # return to menu
 
         # perform task 3
@@ -61,12 +78,20 @@ def adminCommands(cursor):
                             SELECT m.drug_name
                             FROM medications m, diagnoses d
                             WHERE m.hcno = d.hcno
-                            AND (m.mdate = d.ddate OR JULIANDAY(m.mdate) > JULIANDAY(d.ddate))
-                            AND d.diagnosis = ?
-                            GROUP BY drug_name
-                            ORDER BY COUNT(*) DESC;''', (diagnosis,))
+                            AND JULIANDAY(m.mdate) > JULIANDAY(d.ddate)
+                            AND lower(d.diagnosis) = ?
+                            GROUP BY m.drug_name
+                            ORDER BY COUNT(m.drug_name);''', (diagnosis,))
             rows = cursor.fetchall()
-            print rows
+
+            # format output
+            table = PrettyTable()
+            table.padding_width = 1
+            table._set_field_names(["Drug"])
+            for r in rows:
+                table.add_row([r[0]])
+            print table
+
             raw_input("Press Enter to go back to menu.")  # return to menu
 
         # perform task 4
@@ -79,10 +104,18 @@ def adminCommands(cursor):
                             WHERE m.hcno = d.hcno
                             AND JULIANDAY(d.ddate) < JULIANDAY(m.mdate)
                             AND lower(m.drug_name) = ?
-                            group by d.diagnosis
-                            order by avg(m.amount);''', (drug,))
+                            GROUP BY d.diagnosis
+                            ORDER BY avg(m.amount);''', (drug,))
             rows = cursor.fetchall()
-            print rows
+
+            # format output
+            table = PrettyTable()
+            table.padding_width = 1
+            table._set_field_names(["Diagnosis"])
+            for r in rows:
+                table.add_row([r[0]])
+            print table
+
             raw_input("Press Enter to go back to menu.")  # return to menu
 
         # else logout
