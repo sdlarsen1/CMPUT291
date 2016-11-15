@@ -309,3 +309,108 @@ Decomposition into BCNF
       - deleting an attribute from an FD
   - FDs and attributes that can be deleted in this way are called _redundant_
   - see slides for example on computing Minimal Cover
+
+# Physical Data Organization on Disks
+## Physical Disk Structure
+  - magnetized disks (platters) stored in a rack
+    - concentric rings on each disk, stores either 0 or 1
+  - whole unit called a 'cylinder'
+  - slower than RAM system
+  - aspects of disks:
+    - capacity
+
+Consider a disk with:
+  - 930 408 cylinders
+  - 2 tracks per cylinder
+  - 63 sectors per track
+  - 512 bytes per sector
+  - What is the disk capacity in bytes?
+    - bytes per disk = bytes per cylinder x cylinders per disk
+    - ((512 x 63) x 2) x 930408 = 60 x 10^9 = 60 GB
+
+Accessing a Disk Page
+--
+  - time to access a disk block:
+    - seek time: moving arms to position disk head on track
+    - rotational delay: waiting for block to rotate under head
+    - transfer time: actually moving data to/from the disk
+  - latency = seek time + rotational delay
+  - access time = latency + transfer time
+
+Consider a disk having:
+  - 63 sectors per track, 512 bytes per sector
+  - avg seek time of 9 msec
+  - rotations speed of 7200 rpm
+  - How long does it take to read a block of 5 sectors?
+    - avg rotational delay = rotation time / 2 = 4.16 msec
+      - rotation time = (1/7200) minutes = (60/7200) seconds = 8.33 msec
+    - transfer time = # of sectors transferred x transfer time per sector = 5 x 0.13 = 0.65 msec
+      - transfer time per sector = transfer time per track / sectors per track
+      - transfer time per sector = rotation time / 63 = 0.13 msec
+    - 9 + 4.16 + 0.65 = 13.81 msec
+
+## Reducing I/O Costs
+  - disk capacity improved 1000x in past 15 years
+  - size of data has also increased at same rate
+    - platters only spin 4x faster
+    - transfer rate has only improved 40x in same period
+  - need to try and reduce seek/rotational delay
+    - arrange file sequentially on disk
+
+Sequential Access
+  - store pages containing related info close together on disk
+    - if application accesses x, it will next access data related to x with high probability
+  - page size tradeoff:
+    - large page size - data related to x stored in same page; hence additional page transfer can be avoided
+    - small page size - reduce transfer tie, reduce buffer size in RAM
+
+Buffering
+  - keep cache of recently accessed pages in main memory
+    - goal: request for page can be satisfied from cache instead of disk
+  - purge pages when cache is full
+    - use LRU algorithm
+    - record clean/dirty state of page (clean pages don't need to be written)
+
+# Data Organization on Files
+Heap Files
+  - rows appended to end of file as they are inserted
+    - file is unordered
+  - deleted rows create gaps in file
+    -  must be periodically compacted to recover space
+  - access path = algorithm + data structure to retrieve/store data
+
+Heap File - Performance
+  - access path is scan (of file containing F pages)
+    -  efficient if query returns all rows
+  - inefficient if a _unique_ row is requested or deleted
+    - avg F/2 pages transfer if row exists; F page transfers if page does not exist
+  - inefficient when a subset of rows is requested: F pages must be read
+
+Sorted File
+  - rows are sorted based on some attribute(s)
+    - access path can be binary search
+    - equality of range query based on that attribute has then the cost lg(F) to retrieve page containing first row
+    - successive rows are in same (or successive) page(s) and cache hits are likely
+  - by storing all pages on same track, seek time can be minimized
+
+# Tree-Structured Indexes
+Supported search operations
+  - Equality search: eg. find the student with sid = '111222'
+  - Range search: find all students with gpa > 3
+  - if data was stored in a sorted file:
+    - can use binary search, cost of lg(B)
+
+Updating the Index
+  - static index structure: Index Sequential Access Method -- __ISAM__
+    - inserts and deletes only affected leaf pages
+    - _insert_: find the leaf page data entry belongs to, and put it there; allocate overflow page is no space
+    - _deletion_: find and remove from leaf; if empty overflow page, de-allocate
+  - dynamic index structure: __B+ Tree__
+    - adjust the tree as data entries are inserted/deleted
+
+B+ Tree
+  - main features:
+    - search/insert/delete guaranteed at logf(N) cost
+    - minimum 50% occupancy (except for root)
+    - leaf pages from a sequence set
+  - structure is much like ISAM, but is dynamically maintained so that the tree remains balanced

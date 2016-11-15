@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea7bdb98-01f1-4a1b-8543-bff32d1bc063" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Admin.py" afterPath="$PROJECT_DIR$/Admin.py" />
-    </list>
+    <list default="true" id="ea7bdb98-01f1-4a1b-8543-bff32d1bc063" name="Default" comment="" />
     <ignored path="prjcode.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -23,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="570">
@@ -45,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Admin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="855">
@@ -855,16 +853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TableCommands.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <marker date="1477545953000" expanded="true" signature="637:701" ph="INSERT INTO staff... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Doctor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1620">
@@ -921,16 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -942,6 +920,26 @@
             <marker date="1477626817000" expanded="true" signature="3012:3362" ph="SELECT m.dru... medications" />
             <marker date="1477626817000" expanded="true" signature="3915:4169" ph="SELECT DISTI... diagnoses" />
             <marker date="1477626817000" expanded="true" signature="3915:4270" ph="SELECT d.dia... diagnoses" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TableCommands.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <marker date="1477545953000" expanded="true" signature="637:701" ph="INSERT INTO staff... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
