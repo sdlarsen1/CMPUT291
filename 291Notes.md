@@ -414,3 +414,58 @@ B+ Tree
     - minimum 50% occupancy (except for root)
     - leaf pages from a sequence set
   - structure is much like ISAM, but is dynamically maintained so that the tree remains balanced
+
+# Hash Indexes
+Hashing
+  - Direct Access: how to support equality searches with one disk access
+  - Three major modes of file access:
+    - sequential access
+    - B+ Tree (Index)
+    - Hashing (Direct)
+
+Hash Functions
+  - Folding
+    - replace the key by numeric code
+    - fold and add
+    - take the modulo relative to the size of address space
+  - Midsquare
+    - square key and take the middle
+  - Radix Transformation
+
+Hash Function Design Issues
+  - key space: set of all possible values for keys
+  - address space (N):
+    - set of all storage units
+    - Physical location of file
+  - in general
+    - file is usually a small subset of key space
+    - address space must accommodate all records in file
+    - address space is usually much smaller than key space
+
+Features of Hash Functions
+  - Randomizing
+    - records are randomly spread over the storage space
+  - collision
+    - two different keys may be hashed into the same address (synonyms)
+    - deal with it two ways:
+      - choose hash functions that reduce collisions
+      - rearrange storage of records to reduce collisions
+
+Choice of Hash Function
+  - perfect hash function:
+    - one-to-one: no synonyms
+    - onto: key space = address space
+    - not feasible for large and active files
+  - desirable hashing function:
+    - minimize collisions
+    - relatively smaller address space
+  - tradeoff:
+    - larger address space → easier to avoid collisions
+    - larger address space → worse storage utilization
+
+Schemes to Reduce Collisions
+  - spread out the records (uniform dist.)
+  - use extra memory
+    - increase ratio of address space to key space
+  - buckets
+    - single address contains more than one record
