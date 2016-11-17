@@ -1,6 +1,19 @@
 # File contains to read table and collect FDs
-def parse(inTable, inFD, cursor):
+def getInput(inTable, inFD, cursor):
     cursor.execute('''
-                    SELECT * FROM ?;''', (inTable,))
+                    SELECT * FROM Input_R1;''')
 
-    rows = cursor.fetchall()
+    inRows = []
+    temp = cursor.fetchall()
+    for row in temp:
+        inRows.append(row)
+
+    cursor.execute('''
+                    SELECT * FROM Input_FDs_R1;''')
+
+    inFDs = []
+    temp = cursor.fetchall()
+    for row in temp:
+        inFDs.append(row)
+
+    return inRows, inFDs
