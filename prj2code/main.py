@@ -20,8 +20,8 @@ def main():
         if inTable == 'q':  # break from loop if user wishes to quit
             break
 
-        inFD = None #raw_input("Enter name of FD table >")
-        inRows, inFDs = getInput(inTable, inFD, cursor)
+        inFDtable = None #raw_input("Enter name of FD table >")
+        inRows, inFDs = getInput(inTable, inFDtable, cursor)
 
         choice = raw_input("Please choose one of the following:\n1. Convert to BCNF\n2. Convert to 3NF\n")
         if choice == '1':
@@ -29,7 +29,7 @@ def main():
             pass
         elif choice == '2':
             # convert to 3nf
-            convert3nf(inFDs)
+            convert3nf(inRows, inFDs, cursor)
             pass
         else:
             #quit

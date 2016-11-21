@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea7bdb98-01f1-4a1b-8543-bff32d1bc063" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../prj2code/bcnf.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../prj2code/threenf.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../prj2code/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../prj2code/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../prj2code/main.py" afterPath="$PROJECT_DIR$/../prj2code/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../prj2code/parser.py" afterPath="$PROJECT_DIR$/../prj2code/parser.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../prj2code/threenf.py" afterPath="$PROJECT_DIR$/../prj2code/threenf.py" />
     </list>
     <ignored path="prjcode.iws" />
     <ignored path=".idea/workspace.xml" />
