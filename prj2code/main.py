@@ -15,13 +15,13 @@ def main():
 
     i = 0
     while i < nTables:  # loop for multiple tables within db, subject to change condition
-        inTable = None #raw_input("Enter name of input table or q to quit >")
+        inTable = raw_input("Enter name of input table or q to quit >")
 
         if inTable == 'q':  # break from loop if user wishes to quit
             break
 
-        inFDtable = None #raw_input("Enter name of FD table >")
-        inRows, inFDs = getInput(inTable, inFDtable, cursor)
+        inFDtable = raw_input("Enter name of FD table >")
+        inRows, inFDs, fdDict = getInput(inTable, inFDtable, cursor)
 
         choice = raw_input("Please choose one of the following:\n1. Convert to BCNF\n2. Convert to 3NF\n")
         if choice == '1':
@@ -29,11 +29,10 @@ def main():
             pass
         elif choice == '2':
             # convert to 3nf
-            convert3nf(inRows, inFDs, cursor)
-            pass
+            convert3nf(inRows, inFDs, cursor, conn, fdDict, inTable[5:])
         else:
-            #quit
-            pass
+            # quit
+            return
 
 
         i += 1

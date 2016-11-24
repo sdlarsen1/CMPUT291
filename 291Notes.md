@@ -469,3 +469,60 @@ Schemes to Reduce Collisions
     - increase ratio of address space to key space
   - buckets
     - single address contains more than one record
+
+# Query Optimization Basics & Database Tuning
+## Query Optimization
+Query Evaluation
+  - Problem: an sql query is declarative - does not specify a query execution plan
+  - a relational algebra expression is procedural - there is an associated query execution plan
+  - Solution: convert SQL query to an equivalent relational algebra and evaluate it using the associated query execution plan
+    - but which equivalent expression is best?
+
+Query Optimizer
+  - uses heuristic algorithms to evaluate relational algebra expressions; this involves:
+    - estimating the cost of a relational algebra expression
+    - transforming one relational algebra expression to an equivalent one
+    - choosing access paths for evaluating the subexpressions
+  - query optimizers do not....
+
+Access Path
+  - __Access Path__ is the notion that denotes algorithm + data structure used to locate rows satisfying some condition
+  - example:
+    - file scan
+    - B+ tree
+    - hashing
+
+Choosing an Access Path
+  - __Selectivity__ of an access path = # of pages retrieved using that path
+  - if several access paths support a query, DBMS chooses the one with lowest selectivity
+  - size of domain of attribute is an  indicator of the selectivity of search conditions that involve that attribute
+    - eg. σ(CrsCode='CS305' & Grade='B'(Transcript))
+      - a B+ tree with search key CrsCode has a lower selectivity than a tree with search key Grade
+
+System Catalog
+  - internal statistics that contain stats about tables and indices to help guide query optimizer
+
+Query Trees
+  - __Query tree__: tree structure that corresponds to a relational algebra expression
+    - leaf node represents an input relation
+    - an internal node represents a relation obtained by applying one relational operator to its child nodes
+    - the root relation represents the answer to the query
+    two query trees are equivalent if their root relations are the same
+
+Query Plans
+  - __Query Plan__: query tree with specification of algorithms for each operation
+    - a query tree may have multiple plans
+    - some plans are more effecient to execute than others
+
+Query Plans in SQLite
+  - EXPLAIN QUERY PLAN command
+    - returns zero or more rows of four columns for each access path
+      - selectid: integer indicating a subquery
+      - order: integer indicating the nesting order of the table
+      - from
+      - detail
+
+Index Covering
+  - an index covers a query if
+    - the query can be computed from the index alone
+  - all attributes of the query must be included in a covering index
