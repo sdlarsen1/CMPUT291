@@ -2,6 +2,8 @@
 # contains code for 3nf conversion
 #
 
+import itertools
+
 
 # determine the min cover
 def minCover(inFDs):
@@ -124,20 +126,12 @@ def populateTable(elements, inRows, cursor, fdDict, inTable):
 
 
 # find the super key of the relation
-def findSuper(listElem, potKey, cover):
-    B = []
-    for i in range(len(potKey)):
-        char = potKey[i]
-        potKey.remove(char)
-        if len(listElem) == len(makeClosure(cover, potKey)):
-            # print "1st if", potKey
-            for element in findSuper(listElem, potKey, cover):
-                B.append(element)
-            potKey.insert(i, char)
-        else:
-            # print "else", potKey
-            potKey.insert(i, char)
-    return B+[potKey]
+def findSuper(listElem, cover):
+    for i in range(1, len(listElem) + 1):
+        for potKey in itertools.combinations(listElem, i):
+            if len(listElem) == len(makeClosure(cover, potKey)):
+                return potKey
+    return listElem  # necessary?
 
 
 # makes total list of all table elements
@@ -160,6 +154,7 @@ def convert3nf(inRows, inFDs, cursor, conn, fdDict, inTable):
     elements = []  # multi-d list of attributes for each output table
     for i in range(len(parts)):
         elements.append(makeTable(parts[i], cursor, inTable))
+        conn.commmit()
 
     # step 4, find a superkey
     foundSuper = False
@@ -167,11 +162,16 @@ def convert3nf(inRows, inFDs, cursor, conn, fdDict, inTable):
         if len(inRows[0]) == len(makeClosure(cover, part[0][0])):
             foundSuper = True
     if not foundSuper:
-        superKeys = findSuper(combineElements(elements), combineElements(elements), cover)
-        print min(superKeys)
+        superKey = findSuper(combineElements(elements), cover)
+
+        # create table for superKey
+        name = "Output"+inTable+'_'+''.join(superKey)
+        attStr = ','.join(superKey)
+        cursor.execute('''
+                        CREATE TABLE %s (%s);''' %(name, attStr))
 
     # after making table, give user the option to populate them
-    choice = str(raw_input("Would you like to populate the tables?\n1. Yes\n2. No\n"))
+    choice = str(raw_input("Would you like to populate the table(s)?\n1. Yes\n2. No\n"))
     if choice == '1':
         # populate each table
         for i in range(len(parts)):
