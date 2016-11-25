@@ -35,4 +35,8 @@ def compareFDs(cursor):
         for i in range(len(fd1)):
             if fd1[i] not in fd2:
                 return False
+
+        for i in range(len(fd2)):
+            if fd2[i] not in fd1:
+                return False
         return True

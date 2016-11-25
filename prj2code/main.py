@@ -4,6 +4,7 @@ from parser import getInput
 from threenf import convert3nf
 from compare import compareFDs
 from bcnf import convertbcnf
+from attributeClosure import getAttributeClosure
 
 
 def main():
@@ -16,12 +17,18 @@ def main():
     nTables = cursor.fetchone()
     nTables = (nTables[0])/2  # account for input table + FD table
 
-    initScreen = raw_input("Please select an option:\n1. Compare FD tables\n2. Normalize a table\n")
+    initScreen = raw_input("Please select an option:\n"
+                           "1. Compute attribute closure\n"
+                           "2. Compare FD tables\n"
+                           "3. Normalize a table\n")
 
     if initScreen == '1':
+        print getAttributeClosure(cursor)
+
+    if initScreen == '2':
         print compareFDs(cursor)
 
-    elif initScreen == '2':
+    elif initScreen == '3':
         i = 0
         while i < nTables:  # loop for multiple tables within db, subject to change condition
             inTable = raw_input("Enter name of input table or q to quit >")
